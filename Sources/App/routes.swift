@@ -6,7 +6,7 @@ import CoreImage
 /// Register your application's routes here.
 public func routes(_ router: Router) throws {
    router.get("/") { _ in
-       return "<3"
+       return "Hello API"
    }
     
     if #available(OSX 10.13, *) {
