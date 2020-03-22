@@ -18,20 +18,22 @@ struct Classifier {
     public static func classify(image: CIImage) -> [VNClassificationObservation] {
         var results = [VNClassificationObservation]()
 
-        // Load the model.
-        let model = try! VNCoreMLModel(for: Resnet50().model)
-
-        // Prepare a ml request and wait for results before continuing.
-        let semaphore = DispatchSemaphore(value: 1)
-        semaphore.wait()
-        let request = VNCoreMLRequest(model: model, completionHandler: { request, error in
-            results = request.results as! [VNClassificationObservation]
-            semaphore.signal()
-        })
-
-        // Make the request.
-        let handler = VNImageRequestHandler(cgImage: convertCIImageToCGImage(image: image), options: [:])
-        try? handler.perform([request])
+//NOTE Uncomment when you import a Model
+        
+//        // Load the model.
+////      let model = try! VNCoreMLModel(for: yourModel().model)
+//
+//        // Prepare a ml request and wait for results before continuing.
+////        let semaphore = DispatchSemaphore(value: 1)
+////        semaphore.wait()
+////        let request = VNCoreMLRequest(model: model, completionHandler: { request, error in
+////            results = request.results as! [VNClassificationObservation]
+////            semaphore.signal()
+////        })
+//
+//        // Make the request.
+//        let handler = VNImageRequestHandler(cgImage: convertCIImageToCGImage(image: image), options: [:])
+//        try? handler.perform([request])
 
         return results
     }
