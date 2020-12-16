@@ -1,4 +1,4 @@
-# CoreML-API
+# Pick.et-API
 
 <h2>THE RISE COLLECTION</h2>
 
